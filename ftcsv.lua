@@ -1,5 +1,5 @@
 local ftcsv = {
-    _VERSION = 'ftcsv 1.0.2',
+    _VERSION = 'ftcsv 1.0.3',
     _DESCRIPTION = 'CSV library for Lua',
     _URL         = 'https://github.com/FourierTransformer/ftcsv',
     _LICENSE     = [[
@@ -323,6 +323,7 @@ end
 
 -- a function that delimits " to "", used by the writer
 local function delimitField(field)
+    local field = tostring(field)
     if field:find('"') then
         return field:gsub('"', '""')
     else
