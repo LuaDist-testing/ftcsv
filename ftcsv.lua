@@ -1,5 +1,5 @@
 local ftcsv = {
-    _VERSION = 'ftcsv 1.1.0',
+    _VERSION = 'ftcsv 1.1.1',
     _DESCRIPTION = 'CSV library for Lua',
     _URL         = 'https://github.com/FourierTransformer/ftcsv',
     _LICENSE     = [[
@@ -442,7 +442,7 @@ function ftcsv.encode(inputTable, delimiter, options)
             newHeaders[i] = headers[i]
         end
     end
-    output[1] = '"' .. table.concat(newHeaders, '","') .. '"\r\n'
+    output[1] = '"' .. table.concat(newHeaders, '"' .. delimiter .. '"') .. '"\r\n'
 
     -- add each line by line.
     for i, line in writer(inputTable, delimiter, headers) do
